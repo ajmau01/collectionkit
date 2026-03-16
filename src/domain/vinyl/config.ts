@@ -101,7 +101,7 @@ export const vinylConfig: CollectionConfig<VinylItem> = {
     { name: 'label',          type: 'TEXT' },
     { name: 'format',         type: 'TEXT' },
     { name: 'tracks',         type: 'TEXT' },
-    { name: 'isNotable',      type: 'INTEGER', defaultValue: 0, preserveOnSync: true },
+    { name: 'isNotable',      type: 'INTEGER', defaultValue: 0, preserveOnSync: true, isBoolean: true },
     { name: 'spinCount',      type: 'INTEGER', defaultValue: 0, preserveOnSync: true },
     { name: 'totalDuration',  type: 'INTEGER', defaultValue: 0 },
   ],

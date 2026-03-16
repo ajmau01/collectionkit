@@ -26,7 +26,7 @@ const BASE_COLUMNS: ColumnDefinition[] = [
   { name: 'thumbUrl',  type: 'TEXT',   nullable: true  },
   { name: 'addedAt',   type: 'INTEGER' },
   { name: 'tags',      type: 'TEXT',   nullable: true  },   // JSON array string
-  { name: 'isSaved',   type: 'INTEGER', defaultValue: 0, preserveOnSync: true },
+  { name: 'isSaved',   type: 'INTEGER', defaultValue: 0, preserveOnSync: true, isBoolean: true },
 ];
 
 function columnDDL(col: ColumnDefinition): string {
@@ -203,11 +203,10 @@ export class DatabaseService {
       [userId]
     );
 
-    // Determine which columns are INTEGER and have boolean semantics.
-    // We treat any INTEGER column whose name starts with 'is' as a boolean.
+    // Determine which columns have boolean semantics via explicit declaration.
     const boolCols = new Set<string>(
       [...BASE_COLUMNS, ...this.schemaExtensions]
-        .filter(c => c.type === 'INTEGER' && c.name.startsWith('is'))
+        .filter(c => c.isBoolean === true)
         .map(c => c.name)
     );
 

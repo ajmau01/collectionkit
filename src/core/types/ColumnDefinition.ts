@@ -14,4 +14,10 @@ export interface ColumnDefinition {
    * e.g. isSaved, isNotable, spinCount in domain/vinyl
    */
   preserveOnSync?: boolean;
+  /**
+   * If true, this INTEGER column stores a boolean (0/1) and will be cast
+   * back to JS boolean when reading from the database.
+   * Must be declared explicitly — do not rely on column name conventions.
+   */
+  isBoolean?: boolean;
 }
