@@ -1,0 +1,9 @@
+{
+  "expo": {
+    "name": "CollectionKit",
+    "slug": "collectionkit",
+    "version": "0.1.0",
+    "platforms": ["ios", "android"],
+    "sdkVersion": "54.0.0"
+  }
+}
